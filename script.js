@@ -74,8 +74,8 @@ function addTask() {
         // Create task object
         const task = {
             text: taskText,
-            addedDate: addedDate,
-            dueDate: dueDate,
+            addedDate: new Date(addedDate), // Parse date string into Date object
+            dueDate: new Date(dueDate), // Parse date string into Date object
             completed: completionStatus === 'complete'
         };
 
