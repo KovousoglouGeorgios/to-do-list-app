@@ -64,8 +64,8 @@ function addTask() {
     const taskText = taskInput.value.trim();
     const categorySelect = document.getElementById('categorySelect');
     const category = categorySelect.value;
-    const addedDate = document.getElementById('addedDate').value;
-    const dueDate = document.getElementById('dueDate').value;
+    const currentDate = new Date(); // Current date
+    const dueDate = new Date(currentDate.getTime() + 7 * 24 * 60 * 60 * 1000); // Current date + 7 days
     const completionStatus = document.getElementById('completionStatus').value;
 
     if (taskText !== '') {
@@ -74,8 +74,8 @@ function addTask() {
         // Create task object
         const task = {
             text: taskText,
-            addedDate: new Date(addedDate), // Parse date string into Date object
-            dueDate: new Date(dueDate), // Parse date string into Date object
+            addedDate: currentDate,
+            dueDate: dueDate,
             completed: completionStatus === 'complete'
         };
 
@@ -93,8 +93,6 @@ function addTask() {
 
         // Clear input fields
         taskInput.value = '';
-        document.getElementById('addedDate').value = '';
-        document.getElementById('dueDate').value = '';
         document.getElementById('completionStatus').value = 'incomplete';
     }
 }
