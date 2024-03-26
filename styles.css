@@ -1,22 +1,31 @@
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    max-width: 500px;
+    max-width: 600px;
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: #f9f9f9;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+h1 {
+    text-align: center;
 }
 
-li {
+#taskInputContainer {
     margin-bottom: 10px;
+}
+
+#taskInput {
+    width: 70%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 button {
@@ -30,4 +39,32 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+.task-list {
+    margin-top: 20px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.task:last-child {
+    border-bottom: none;
+}
+
+.task input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.task .task-text {
+    flex-grow: 1;
+}
+
+.task .task-delete {
+    color: red;
+    cursor: pointer;
 }
