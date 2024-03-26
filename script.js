@@ -1,3 +1,63 @@
+// Function to sort tasks by date added
+function sortByDateAdded(category) {
+    if (tasksByCategory[category]) {
+        tasksByCategory[category].sort((a, b) => a.dateAdded - b.dateAdded);
+    }
+}
+
+// Function to sort tasks by date due
+function sortByDateDue(category) {
+    if (tasksByCategory[category]) {
+        tasksByCategory[category].sort((a, b) => {
+            if (!a.dateDue && !b.dateDue) return 0;
+            if (!a.dateDue) return 1;
+            if (!b.dateDue) return -1;
+            return a.dateDue - b.dateDue;
+        });
+    }
+}
+
+// Function to sort tasks by completion status
+function sortByCompletionStatus(category) {
+    if (tasksByCategory[category]) {
+        tasksByCategory[category].sort((a, b) => {
+            if (a.completed && !b.completed) return 1;
+            if (!a.completed && b.completed) return -1;
+            return 0;
+        });
+    }
+}
+
+// Function to switch between sorting options
+function switchSortOption(option, category) {
+    const taskList = document.getElementById('taskLists');
+    taskList.innerHTML = ''; // Clear existing tasks
+
+    switch (option) {
+        case 'dateAdded':
+            sortByDateAdded(category);
+            break;
+        case 'dateDue':
+            sortByDateDue(category);
+            break;
+        case 'completionStatus':
+            sortByCompletionStatus(category);
+            break;
+        default:
+            return;
+    }
+
+    // Display sorted tasks
+    switchCategory(category);
+}
+
+// Event listener for sort select change
+document.getElementById('sortSelect').addEventListener('change', function() {
+    const categorySelect = document.getElementById('categorySelect');
+    const category = categorySelect.value;
+    switchSortOption(this.value, category);
+});
+
 // Object to store tasks by category
 let tasksByCategory = {};
 
