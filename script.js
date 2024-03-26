@@ -1,5 +1,5 @@
 // Object to store tasks by category
-const tasksByCategory = {};
+let tasksByCategory = {};
 
 // Function to add a new task
 function addTask() {
@@ -33,6 +33,7 @@ function addTask() {
         deleteButton.textContent = '❌';
         deleteButton.onclick = function () {
             taskElement.remove();
+            updateLocalStorage();
         };
         taskElement.appendChild(deleteButton);
 
@@ -44,6 +45,9 @@ function addTask() {
             tasksByCategory[category] = [];
         }
         tasksByCategory[category].push(taskText);
+
+        // Update Local Storage
+        updateLocalStorage();
 
         // Clear input field
         taskInput.value = '';
@@ -79,6 +83,7 @@ function switchCategory(category) {
             deleteButton.textContent = '❌';
             deleteButton.onclick = function () {
                 taskElement.remove();
+                updateLocalStorage();
             };
             taskElement.appendChild(deleteButton);
 
@@ -88,8 +93,24 @@ function switchCategory(category) {
     }
 }
 
-// Initialize with default category
-switchCategory('general');
+// Function to update Local Storage
+function updateLocalStorage() {
+    localStorage.setItem('tasks', JSON.stringify(tasksByCategory));
+}
+
+// Function to load tasks from Local Storage
+function loadTasksFromLocalStorage() {
+    const tasks = localStorage.getItem('tasks');
+    if (tasks) {
+        tasksByCategory = JSON.parse(tasks);
+        // Display tasks from Local Storage
+        const categorySelect = document.getElementById('categorySelect');
+        switchCategory(categorySelect.value);
+    }
+}
+
+// Initialize with default category and load tasks from Local Storage
+loadTasksFromLocalStorage();
 
 // Event listener for category select change
 document.getElementById('categorySelect').addEventListener('change', function() {
