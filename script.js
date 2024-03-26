@@ -79,40 +79,14 @@ function addTask() {
             completed: completionStatus === 'complete'
         };
 
-        // Create task element
-        const taskElement = document.createElement('div');
-        taskElement.classList.add('task');
-        taskElement.dataset.category = category;
-
-        // Create checkbox
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        taskElement.appendChild(checkbox);
-
-        // Create task text
-        const taskTextElement = document.createElement('div');
-        taskTextElement.classList.add('task-text');
-        taskTextElement.textContent = task.text;
-        taskElement.appendChild(taskTextElement);
-
-        // Create delete button
-        const deleteButton = document.createElement('span');
-        deleteButton.classList.add('task-delete');
-        deleteButton.textContent = '❌';
-        deleteButton.onclick = function () {
-            taskElement.remove();
-            updateLocalStorage();
-        };
-        taskElement.appendChild(deleteButton);
-
-        // Append task element to task list
-        taskList.appendChild(taskElement);
-
         // Store task in tasksByCategory object
         if (!tasksByCategory[category]) {
             tasksByCategory[category] = [];
         }
         tasksByCategory[category].push(task);
+
+        // Sort tasks after adding
+        switchSortOption(document.getElementById('sortSelect').value, category);
 
         // Update Local Storage
         updateLocalStorage();
