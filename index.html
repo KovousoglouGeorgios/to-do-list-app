@@ -17,18 +17,27 @@
                 <option value="personal">Personal</option>
                 <!-- Add more categories as needed -->
             </select>
+            <label for="addedDate">Added Date:</label>
+            <input type="date" id="addedDate">
+            <label for="dueDate">Due Date:</label>
+            <input type="date" id="dueDate">
+            <label for="completionStatus">Completion Status:</label>
+            <select id="completionStatus">
+                <option value="incomplete">Incomplete</option>
+                <option value="complete">Complete</option>
+            </select>
             <button onclick="addTask()">Add Task</button>
         </div>
         <div id="taskLists"></div>
     </div>
     <div id="sortContainer">
-    <label for="sortSelect">Sort by:</label>
-    <select id="sortSelect">
-        <option value="dateAdded">Date Added</option>
-        <option value="dateDue">Date Due</option>
-        <option value="completionStatus">Completion Status</option>
-    </select>
-</div>
+        <label for="sortSelect">Sort by:</label>
+        <select id="sortSelect">
+            <option value="dateAdded">Date Added</option>
+            <option value="dateDue">Date Due</option>
+            <option value="completionStatus">Completion Status</option>
+        </select>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
