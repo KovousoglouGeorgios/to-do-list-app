@@ -30,40 +30,39 @@ main {
     margin: auto;
 }
 
-.notes-container {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    max-width: 600px;
+.color-meanings {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
 }
 
-.notes {
+.color {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.red {
+    background-color: #ffcccc; /* Light red background */
+}
+
+.yellow {
+    background-color: #ffe5b4; /* Light orange background */
+}
+
+.orange {
+    background-color: yellow; /* Yellow background */
+}
+
+.green {
+    background-color: #ccffcc; /* Light green background */
+}
+
+.meaning {
     font-size: 14px;
 }
 
-.note {
-    padding: 10px;
-    border-left: 5px solid transparent;
-    margin-bottom: 10px;
-}
-
-.note.red {
-    border-color: #cc0000; /* Red border color */
-}
-
-.note.yellow {
-    border-color: #ffcc00; /* Yellow border color */
-}
-
-.note.orange {
-    border-color: #ff6600; /* Orange border color */
-}
-
-.note.green {
-    border-color: #008000; /* Green border color */
-}
 
 #taskInputContainer {
     margin-bottom: 20px;
