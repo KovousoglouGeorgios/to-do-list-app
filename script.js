@@ -183,3 +183,4 @@ window.addEventListener('load', function() {
     const category = categorySelect.value;
     displayTasks(tasksByCategory[category], category);
 });
+
