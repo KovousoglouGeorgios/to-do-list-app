@@ -85,10 +85,18 @@ function displayTasks(tasks, category) {
 
         if (dueDateTime <= currentTime) {
             row.classList.add('expired');
+        } else if (reminderTime <= currentTime) { // Changed condition to check if reminder date has passed
+            row.classList.add('reminder-passed'); // Add 'reminder-passed' class for styling
         } else if (dueDateTime - currentTime < 7 * 24 * 60 * 60 * 1000) { // Less than 7 days from current date
             row.classList.add('near-deadline');
         } else {
             row.classList.add('active');
+        }
+
+        // Check if reminder date has passed
+        if (reminderTime <= currentTime) {
+            // Display notification for reminder
+            displayReminderNotification(task.text);
         }
 
         // Actions (checkbox and delete button)
@@ -115,6 +123,40 @@ function displayTasks(tasks, category) {
 
     // Append the table to the container
     taskListContainer.appendChild(table);
+}
+
+// Function to display notification for reminder
+function displayReminderNotification(taskName) {
+    // Check if the browser supports notifications
+    if (!("Notification" in window)) {
+        alert("This browser does not support desktop notification");
+    }
+
+    // Check if permission to show notifications has been granted
+    else if (Notification.permission === "granted") {
+        // Create notification
+        const notification = new Notification("Reminder", {
+            body: `It's time for "${taskName}"!`,
+        });
+
+        // Automatically close the notification after a few seconds
+        setTimeout(notification.close.bind(notification), 5000);
+    }
+
+    // If permission has not been granted yet, request permission
+    else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(function (permission) {
+            // If permission is granted, display notification
+            if (permission === "granted") {
+                const notification = new Notification("Reminder", {
+                    body: `It's time for "${taskName}"!`,
+                });
+
+                // Automatically close the notification after a few seconds
+                setTimeout(notification.close.bind(notification), 5000);
+            }
+        });
+    }
 }
 
 // Function to add a new task
@@ -186,4 +228,5 @@ document.getElementById('categorySelect').addEventListener('change', function() 
     const category = this.value;
     displayTasks(tasksByCategory[category], category);
 });
+
 
