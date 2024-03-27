@@ -23,7 +23,8 @@ main {
 }
 
 .container {
-    width: 100%;
+    max-width: 500px; /* Reduced the max-width for a smaller container */
+    width: 90%; /* Adjusted the width for better fitting on the page */
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
@@ -66,44 +67,39 @@ main {
 
 #taskInputContainer {
     margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap */
 }
 
 #taskInput {
-    flex: 1 0 100%; /* Grow to take up 100% of the container width */
+    width: 100%; /* Set the width to 100% to take up the full width */
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 10px;
 }
 
-#dateInputs {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+#dateInputs, #categorySelect, #submitTaskButton {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(30% - 5px); /* Adjusted width for fitting on the same line */
+    margin-right: 10px;
 }
 
-label {
-    flex: 1 0 48%; /* Each label takes up 48% of the container width */
-}
-
-input[type="date"],
-input[type="datetime-local"] {
-    flex: 1 0 48%; /* Each input takes up 48% of the container width */
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+#dateInputs input[type="date"],
+#dateInputs input[type="datetime-local"],
+#categorySelect,
+#submitTaskButton {
+    width: 100%; /* Set width to 100% to fill the available space */
+    margin-bottom: 10px;
 }
 
 button {
-    width: 100%; /* Button takes up full width */
     padding: 10px 0;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: calc(30% - 5px); /* Adjusted width for fitting on the same line */
 }
 
 button:hover {
