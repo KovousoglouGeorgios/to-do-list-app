@@ -228,3 +228,5 @@ document.getElementById('categorySelect').addEventListener('change', function() 
     const category = this.value;
     displayTasks(tasksByCategory[category], category);
 });
+
+
