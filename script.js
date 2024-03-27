@@ -215,6 +215,7 @@ document.getElementById('sortSelect').addEventListener('change', function() {
     sortTasks(sortOption, category);
 });
 
+// Add an event listener to
 // Add an event listener to the task input field to detect 'Enter' key press
 document.getElementById('taskInput').addEventListener('keypress', function(event) {
     // Check if the 'Enter' key is pressed
@@ -228,5 +229,3 @@ document.getElementById('categorySelect').addEventListener('change', function() 
     const category = this.value;
     displayTasks(tasksByCategory[category], category);
 });
-
-
