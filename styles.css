@@ -21,61 +21,32 @@ main {
 }
 
 .container {
-    max-width: 600px;
-    width: 100%;
+    max-width: 800px;
+    width: 90%;
+    margin: auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: auto;
 }
-
-.color-meanings {
-    display: flex;
-    align-items: center;
-    margin-top: 5px;
-}
-
-.color {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-    border-radius: 50%;
-}
-
-.red {
-    background-color: #ffcccc; /* Light red background */
-}
-
-.yellow {
-    background-color: #ffe5b4; /* Light orange background */
-}
-
-.orange {
-    background-color: yellow; /* Yellow background */
-}
-
-.green {
-    background-color: #ccffcc; /* Light green background */
-}
-
-.meaning {
-    font-size: 14px;
-}
-
 
 #taskInputContainer {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
 }
 
-#taskInput {
-    flex-grow: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
+.label-block,
+.input-block {
+    flex: 0 1 calc(50% - 5px); /* Adjust width of label and input blocks */
+    margin-bottom: 10px;
+}
+
+.label-block label,
+.input-block input,
+.input-block select,
+.input-block button {
+    width: 100%; /* Make input elements take full width */
 }
 
 button {
@@ -99,52 +70,72 @@ button:hover {
     text-align: right;
 }
 
-select {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.select-container {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
 }
 
-option {
-    padding: 8px;
+.select-container select {
+    margin-left: 10px;
 }
 
-.task {
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.color-meanings {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
 }
 
-.task:last-child {
-    margin-bottom: 0;
-}
-
-.task-text {
+.color {
+    width: 20px;
+    height: 20px;
     margin-right: 10px;
+    border-radius: 50%;
 }
 
-.task-delete {
-    color: red;
-    cursor: pointer;
+.red {
+    background-color: #ffcccc;
 }
 
-.expired {
-    background-color: #ffcccc; /* Light red background */
-    color: #cc0000; /* Dark red text color */
+.yellow {
+    background-color: #ffe5b4;
 }
 
-.near-deadline {
-    background-color: #ffe5b4; /* Light orange background */
-    color: #ff6600; /* Orange text color */
-}
-
-.reminder-passed {
+.orange {
     background-color: yellow;
 }
 
-.active {
-    background-color: #ccffcc; /* Light green background */
-    color: #008000; /* Green text color */
+.green {
+    background-color: #ccffcc;
+}
+
+.meaning {
+    font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 100%;
+    }
+
+    .label-block,
+    .input-block {
+        flex: 0 1 100%; /* Make label and input blocks take full width on small screens */
+    }
+
+    button {
+        flex-basis: 100%;
+        margin-top: 10px;
+    }
+
+    .select-container {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .select-container select {
+        margin-left: 0;
+        margin-top: 10px;
+    }
 }
