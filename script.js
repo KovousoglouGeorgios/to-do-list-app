@@ -1,5 +1,5 @@
 // Global variable to store tasks categorized by their respective categories
-const tasksByCategory = {
+let tasksByCategory = {
     general: [],
     work: [],
     personal: []
