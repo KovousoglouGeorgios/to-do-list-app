@@ -6,6 +6,28 @@ const tasksByCategory = {
     // Add more categories as needed
 };
 
+// Function to save tasks to Local Storage
+function saveTasksToLocalStorage() {
+    localStorage.setItem('tasksByCategory', JSON.stringify(tasksByCategory));
+}
+
+// Function to load tasks from Local Storage
+function loadTasksFromLocalStorage() {
+    const storedTasks = localStorage.getItem('tasksByCategory');
+    if (storedTasks) {
+        tasksByCategory = JSON.parse(storedTasks);
+    }
+}
+
+// Function to delete a task
+function deleteTask(task, category) {
+    const index = tasksByCategory[category].indexOf(task);
+    if (index !== -1) {
+        tasksByCategory[category].splice(index, 1); // Remove task from array
+        saveTasksToLocalStorage(); // Save updated tasks to Local Storage
+        displayTasks(tasksByCategory[category], category); // Update displayed tasks
+    }
+}
 
 // Function to display tasks for the selected category
 function displayTasks(tasks, category) {
@@ -151,5 +173,13 @@ document.getElementById('taskInput').addEventListener('keypress', function(event
 // Event listener for category select change
 document.getElementById('categorySelect').addEventListener('change', function() {
     const category = this.value;
+    displayTasks(tasksByCategory[category], category);
+});
+
+// Load tasks from Local Storage when the page is loaded
+window.addEventListener('load', function() {
+    loadTasksFromLocalStorage();
+    const categorySelect = document.getElementById('categorySelect');
+    const category = categorySelect.value;
     displayTasks(tasksByCategory[category], category);
 });
