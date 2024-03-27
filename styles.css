@@ -23,7 +23,6 @@ main {
 }
 
 .container {
-    max-width: 600px;
     width: 100%;
     padding: 20px;
     background-color: #fff;
@@ -72,24 +71,34 @@ main {
 }
 
 #taskInput {
-    flex: 1 0 70%; /* Grow to take up 70% of the container width */
+    flex: 1 0 100%; /* Grow to take up 100% of the container width */
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 #dateInputs {
-    flex: 1 0 30%; /* Grow to take up 30% of the container width */
+    width: 100%;
     display: flex;
+    justify-content: space-between;
 }
 
 label {
-    margin-right: 10px;
+    flex: 1 0 48%; /* Each label takes up 48% of the container width */
+}
+
+input[type="date"],
+input[type="datetime-local"] {
+    flex: 1 0 48%; /* Each input takes up 48% of the container width */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 button {
-    padding: 10px 20px;
+    width: 100%; /* Button takes up full width */
+    padding: 10px 0;
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -101,60 +110,57 @@ button:hover {
     background-color: #0056b3;
 }
 
-#taskLists {
-    margin-bottom: 20px;
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-#sortContainer {
-    text-align: right;
-}
-
-select {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-option {
-    padding: 8px;
-}
-
-.task {
+.task-table th,
+.task-table td {
     padding: 10px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    border-bottom: 1px solid #ccc;
 }
 
-.task:last-child {
-    margin-bottom: 0;
+.task-table th {
+    background-color: #007bff;
+    color: #fff;
 }
 
-.task-text {
-    margin-right: 10px;
-}
-
-.task-delete {
-    color: red;
-    cursor: pointer;
-}
-
-.expired {
+.task-table .expired {
     background-color: #ffcccc; /* Light red background */
     color: #cc0000; /* Dark red text color */
 }
 
-.near-deadline {
+.task-table .near-deadline {
     background-color: #ffe5b4; /* Light orange background */
     color: #ff6600; /* Orange text color */
 }
 
-.reminder-passed {
+.task-table .reminder-passed {
     background-color: yellow;
 }
 
-.active {
+.task-table .active {
     background-color: #ccffcc; /* Light green background */
     color: #008000; /* Green text color */
+}
+
+.task-table .task-actions {
+    display: flex;
+    align-items: center;
+}
+
+.task-table .task-actions button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.task-table .task-actions button:hover {
+    background-color: #c82333;
 }
