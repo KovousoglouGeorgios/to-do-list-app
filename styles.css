@@ -86,6 +86,24 @@ main {
     margin-bottom: 10px;
 }
 
+#categoryContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#categoryContainer label {
+    margin-right: 10px;
+}
+
+#categorySelect {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
 button {
     padding: 10px 0;
     background-color: #007bff;
