@@ -30,25 +30,18 @@
                 <!-- Task list will be displayed here -->
             </div>
             <div id="sortContainer">
-                <label for="sortSelect">Sort by:</label>
-                <select id="sortSelect">
-                    <option value="none">None</option>
-                    <option value="dueDate">Due Date</option>
-                </select>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <div class="notes-container">
-            <h2>Notes</h2>
-            <div class="notes">
-                <div class="note red">Red: Task is expired</div>
-                <div class="note yellow">Yellow: Task is near deadline</div>
-                <div class="note orange">Orange: Reminder has passed</div>
-                <div class="note green">Green: Active task</div>
-            </div>
-        </div>
-    </footer>
+    <label for="sortSelect">Sort by:</label>
+    <select id="sortSelect">
+        <option value="none">None</option>
+        <option value="dueDate">Due Date</option>
+    </select>
+    <div class="color-meanings">
+        <div class="color red"></div><span class="meaning">Expired</span>
+        <div class="color yellow"></div><span class="meaning">Near Deadline</span>
+        <div class="color orange"></div><span class="meaning">Reminder Passed</span>
+        <div class="color green"></div><span class="meaning">Active</span>
+    </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
