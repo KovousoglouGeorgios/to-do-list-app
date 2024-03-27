@@ -4,38 +4,24 @@ body {
     padding: 0;
 }
 
-.container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
-
-/* CSS for task table */
-.task-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.task-table th, .task-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-/* Larger gaps between table columns */
-.task-table th:not(:last-child), .task-table td:not(:last-child) {
-    padding-right: 20px; /* Adjust as needed */
-}
-
 h1 {
     text-align: center;
 }
 
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 #taskInputContainer {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
 }
 
 #taskInput {
@@ -58,27 +44,29 @@ button:hover {
     background-color: #0056b3;
 }
 
-.task-list {
-    margin-top: 20px;
+#taskLists {
+    margin-bottom: 20px;
 }
 
-.task {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+.task-table {
+    border-collapse: collapse;
+    width: 100%;
 }
 
-.task:last-child {
-    border-bottom: none;
+.task-table th,
+.task-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.task-table th:not(:last-child),
+.task-table td:not(:last-child) {
+    padding-right: 20px; /* Adjust as needed */
 }
 
 .task input[type="checkbox"] {
     margin-right: 10px;
-}
-
-.task .task-text {
-    flex-grow: 1;
 }
 
 .task .task-delete {
@@ -95,10 +83,16 @@ button:hover {
 .near-deadline {
     background-color: #ffe5b4; /* Light orange background */
     color: #ff6600; /* Orange text color */
+    font-style: italic; /* Italicize text */
+}
+
+.reminder-passed {
+    background-color: yellow;
+    font-style: italic; /* Italicize text */
 }
 
 .active {
     background-color: #ccffcc; /* Light green background */
     color: #008000; /* Green text color */
+    font-style: italic; /* Italicize text */
 }
-
