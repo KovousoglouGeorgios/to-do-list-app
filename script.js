@@ -1,10 +1,5 @@
 // Global variable to store tasks categorized by their respective categories
-let tasksByCategory = {
-    general: [],
-    work: [],
-    personal: []
-    // Add more categories as needed
-};
+let tasksByCategory;
 
 // Function to save tasks to Local Storage
 function saveTasksToLocalStorage() {
@@ -16,8 +11,24 @@ function loadTasksFromLocalStorage() {
     const storedTasks = localStorage.getItem('tasksByCategory');
     if (storedTasks) {
         tasksByCategory = JSON.parse(storedTasks);
+    } else {
+        // If no tasks are stored, initialize tasksByCategory with empty arrays
+        tasksByCategory = {
+            general: [],
+            work: [],
+            personal: []
+            // Add more categories as needed
+        };
     }
 }
+
+// Load tasks from Local Storage when the page is loaded
+window.addEventListener('load', function() {
+    loadTasksFromLocalStorage();
+    const categorySelect = document.getElementById('categorySelect');
+    const category = categorySelect.value;
+    displayTasks(tasksByCategory[category], category);
+});
 
 // Function to delete a task
 function deleteTask(task, category) {
@@ -117,7 +128,7 @@ function addTask() {
     const categorySelect = document.getElementById('categorySelect');
     const category = categorySelect.value;
 
-     if (taskText !== '') {
+    if (taskText !== '') {
         const task = {
             text: taskText,
             dueDate: dueDate,
@@ -173,14 +184,6 @@ document.getElementById('taskInput').addEventListener('keypress', function(event
 // Event listener for category select change
 document.getElementById('categorySelect').addEventListener('change', function() {
     const category = this.value;
-    displayTasks(tasksByCategory[category], category);
-});
-
-// Load tasks from Local Storage when the page is loaded
-window.addEventListener('load', function() {
-    loadTasksFromLocalStorage();
-    const categorySelect = document.getElementById('categorySelect');
-    const category = categorySelect.value;
     displayTasks(tasksByCategory[category], category);
 });
 
