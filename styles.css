@@ -23,8 +23,8 @@ main {
 }
 
 .container {
-    max-width: 500px;
-    width: 90%;
+    max-width: 600px;
+    width: 100%;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
@@ -71,18 +71,9 @@ main {
 
 #taskInput {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-#taskInputContainer input[type="date"],
-#taskInputContainer input[type="datetime-local"],
-#taskInputContainer select,
-#taskInputContainer button {
-    width: calc(30% - 5px);
-    margin-right: 10px;
     margin-bottom: 10px;
 }
 
@@ -97,15 +88,22 @@ main {
 }
 
 #categorySelect {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     flex-grow: 1;
+}
+
+input[type="date"],
+input[type="datetime-local"],
+select {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-
 button {
-    padding: 10px 0;
+    padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
     border: none;
