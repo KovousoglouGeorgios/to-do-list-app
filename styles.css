@@ -1,3 +1,5 @@
+/* CSS styles for the To-Do List Application */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -63,18 +65,26 @@ main {
     font-size: 14px;
 }
 
-
 #taskInputContainer {
     margin-bottom: 20px;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap; /* Allow items to wrap */
 }
 
 #taskInput {
-    flex-grow: 1;
+    flex: 1 0 70%; /* Grow to take up 70% of the container width */
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-right: 10px;
+}
+
+#dateInputs {
+    flex: 1 0 30%; /* Grow to take up 30% of the container width */
+    display: flex;
+}
+
+label {
     margin-right: 10px;
 }
 
