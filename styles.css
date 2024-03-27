@@ -13,6 +13,23 @@ body {
     background-color: #f9f9f9;
 }
 
+/* CSS for task table */
+.task-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.task-table th, .task-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Larger gaps between table columns */
+.task-table th:not(:last-child), .task-table td:not(:last-child) {
+    padding-right: 20px; /* Adjust as needed */
+}
+
 h1 {
     text-align: center;
 }
@@ -68,3 +85,20 @@ button:hover {
     color: red;
     cursor: pointer;
 }
+
+.expired {
+    background-color: #ffcccc; /* Light red background */
+    color: #cc0000; /* Dark red text color */
+    font-style: italic; /* Italicize text */
+}
+
+.near-deadline {
+    background-color: #ffe5b4; /* Light orange background */
+    color: #ff6600; /* Orange text color */
+}
+
+.active {
+    background-color: #ccffcc; /* Light green background */
+    color: #008000; /* Green text color */
+}
+
