@@ -24,7 +24,7 @@ main {
 
 .container {
     max-width: 600px;
-    width: 100%;
+    width: 90%;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
@@ -67,13 +67,16 @@ main {
 
 #taskInputContainer {
     margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #taskInput {
-    width: 100%;
+    width: calc(70% - 10px);
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-right: 10px;
     margin-bottom: 10px;
 }
 
@@ -92,14 +95,16 @@ main {
     border: 1px solid #ccc;
     border-radius: 5px;
     flex-grow: 1;
+    margin-right: 10px;
 }
 
 input[type="date"],
-input[type="datetime-local"],
-select {
+input[type="datetime-local"] {
+    width: calc(30% - 10px);
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-right: 10px;
 }
 
 button {
@@ -109,27 +114,21 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
-.task-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.task-table th,
-.task-table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ccc;
-}
-
 .task-table th {
     background-color: #007bff;
     color: #fff;
+}
+
+.task-table td {
+    padding: 15px; /* Increase padding for larger cells */
+    font-size: 16px; /* Increase font size for better readability */
 }
 
 .task-table .expired {
@@ -149,23 +148,4 @@ button:hover {
 .task-table .active {
     background-color: #ccffcc; /* Light green background */
     color: #008000; /* Green text color */
-}
-
-.task-table .task-actions {
-    display: flex;
-    align-items: center;
-}
-
-.task-table .task-actions button {
-    margin-left: 5px;
-    padding: 5px 10px;
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.task-table .task-actions button:hover {
-    background-color: #c82333;
 }
