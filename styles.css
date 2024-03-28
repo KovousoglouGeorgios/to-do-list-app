@@ -23,7 +23,6 @@ main {
 }
 
 .container {
-    max-width: 600px;
     width: 90%;
     padding: 20px;
     background-color: #fff;
