@@ -14,20 +14,27 @@
         <div class="container">
             <div id="taskInputContainer">
                 <input type="text" id="taskInput" placeholder="Add a new task...">
-                <div id="categoryContainer">
-                  <label for="categorySelect">Category:</label>
-                  <select id="categorySelect">
-                    <option value="general">General</option>
-                    <option value="work">Work</option>
-                    <option value="personal">Personal</option>
-                  </select>
+            </div>
+            <div id="taskControls">
+                <div class="control-group">
+                    <label for="dueDate">Due Date:</label>
+                    <input type="date" id="dueDate">
                 </div>
-                <label for="dueDate">Due Date:</label>
-                <input type="date" id="dueDate">
-                <label for="reminderDate">Reminder Date:</label>
-                <input type="datetime-local" id="reminderDate">
+                <div class="control-group">
+                    <label for="reminderDate">Reminder Date:</label>
+                    <input type="datetime-local" id="reminderDate">
+                </div>
+                <div class="control-group">
+                    <label for="categorySelect">Category:</label>
+                    <select id="categorySelect">
+                        <option value="general">General</option>
+                        <option value="work">Work</option>
+                        <option value="personal">Personal</option>
+                    </select>
+                </div>
                 <button onclick="addTask()">Add Task</button>
             </div>
+
             <div id="taskLists">
                 <!-- Task list will be displayed here -->
             </div>
