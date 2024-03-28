@@ -1,4 +1,6 @@
-# To-Do List Application
+# <div align="center">To-Do List Application</div>
+
+<div align="justify">
 
 This is a simple To-Do List web application designed to help users organize their tasks efficiently. With this application, users can easily add new tasks, specify due dates and reminders, categorize tasks, and keep track of their progress.
 
@@ -25,3 +27,5 @@ This is a simple To-Do List web application designed to help users organize thei
 ## Demo:
 
 Check out the live demo of the application [here](https://kovousoglougeorgios.github.io/to-do-list-app/).
+
+</div>
